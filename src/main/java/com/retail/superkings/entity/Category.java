@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection="category")
 public class Category {
 
-	@Id
+	//@Id
 	private String cName;
 	private List<String> productList;
 	
