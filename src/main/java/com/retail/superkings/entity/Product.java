@@ -10,18 +10,20 @@ public class Product {
 	private String Inventory;
 	private String category;
 	private String Rating;
+	private String image;
 	
 	protected Product() {
 		
 	}
 
-	public Product(String pName, String description, String inventory, String category, String rating) {
+	public Product(String pName, String description, String inventory, String category, String rating, String image) {
 		super();
 		this.pName = pName;
 		Description = description;
 		Inventory = inventory;
 		this.category = category;
 		Rating = rating;
+		this.image = image;
 	}
 
 	public String getpName() {
@@ -64,6 +66,15 @@ public class Product {
 		Rating = rating;
 	}
 
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	
 	
 	
 	
