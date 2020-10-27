@@ -50,11 +50,15 @@ public class CategoryController {
 	public List<String> getProductList(@PathVariable String categoryName) {
 		return categoryRepo.findBycName(categoryName);
 	}
-
-	@PostMapping("user/{userId}")
-	public User addProductToCart(@PathVariable Long userId,
-			@RequestParam List<String> productList) {
-		return userService.saveProduct(userId, productList);
+	
+	@PostMapping("user/{userId}/add/{productName}")
+	public User addProducttoCart(@PathVariable Long userId, @PathVariable String productName) {
+		return userService.saveProduct(userId, productName);
+	}
+	
+	@PostMapping("user/{userId}/remove/{productName}")
+	public User removeProducttoCart(@PathVariable Long userId, @PathVariable String productName) {
+		return userService.removeProduct(userId, productName);
 	}
 
 }
