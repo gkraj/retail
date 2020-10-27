@@ -8,16 +8,20 @@ public class Product {
 	private String pName;
 	private String Description;
 	private String Inventory;
+	private String category;
+	private String Rating;
 	
 	protected Product() {
 		
 	}
 
-	public Product(String pName, String description, String inventory) {
+	public Product(String pName, String description, String inventory, String category, String rating) {
 		super();
 		this.pName = pName;
 		Description = description;
 		Inventory = inventory;
+		this.category = category;
+		Rating = rating;
 	}
 
 	public String getpName() {
@@ -44,10 +48,23 @@ public class Product {
 		Inventory = inventory;
 	}
 
-	@Override
-	public String toString() {
-		return "Product [pName=" + pName + ", Description=" + Description + ", Inventory=" + Inventory + "]";
+	public String getCategory() {
+		return category;
 	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public String getRating() {
+		return Rating;
+	}
+
+	public void setRating(String rating) {
+		Rating = rating;
+	}
+
+	
 	
 	
 }

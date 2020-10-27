@@ -35,6 +35,11 @@ public class CategoryController {
 	public List<Category> getAllCategory() {
 		return categoryRepo.findAll();
 	}
+	
+	@GetMapping("product")
+	public List<Product> getAllProduct() {
+		return productRepo.findAll();
+	}
 
 	@GetMapping(value = "category/product/{name}")
 	public List<Product> getProductByName(@PathVariable String name) {
