@@ -1,0 +1,55 @@
+package com.retail.superkings.controller;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.retail.superkings.bean.ResponseBean;
+import com.retail.superkings.entity.User;
+import com.retail.superkings.repo.UserRepo;
+import com.retail.superkings.service.UserService;
+
+@RestController
+@CrossOrigin
+public class UserController {
+	
+	@Autowired
+	UserRepo userRepo;
+	@Autowired
+	UserService userService;
+
+	@PostMapping("/adduser")
+	public String newUser(@RequestParam Map<String, String> params) {
+
+		String userId = params.get("userId");
+		@SuppressWarnings("unchecked")
+		List<String> ul = (List<String>) userRepo.findByuserId(userId);
+		if (ul.size() > 0)
+			return "userID already exist, please enter new userId";
+		else {
+			userService.newUser(params);
+			return "successfully registred the user, please login to shop";
+		}
+	}
+	
+	@PostMapping("/login")
+	public ResponseBean loginUser(@RequestParam Map<String, String> params) {
+		String userId = params.get("userId");
+		User ul = userRepo.findByuserId(userId);
+		if(ul != null) {
+			if(params.get("password").equals(ul.getUserPw())) {
+				return new ResponseBean(ul.getProductList(), "Success", ul.getUserName());
+			} else {
+				return new ResponseBean(null, "Invalid Password", null);
+			}	
+		} else {
+			return new ResponseBean(null, "Invalid userId", null);
+		}
+	}
+
+}

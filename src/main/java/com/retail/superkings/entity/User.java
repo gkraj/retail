@@ -10,7 +10,7 @@ public class User {
 
 	@Id
 	private Object _id;
-	private Long userId;
+	private String userId;
 	private String userName;
 	private String userPw;
 	private List<String> productList;
@@ -19,19 +19,18 @@ public class User {
 		
 	}
 
-	public User(Long userid, String userName, String userPw, List<String> productList) {
+	public User(String userid, String userName, String userPw) {
 		super();
 		this.userId = userid;
 		this.userName = userName;
 		this.userPw = userPw;
-		this.productList = productList;
 	}
 
-	public Long getUserid() {
+	public String getUserid() {
 		return userId;
 	}
 
-	public void setUserid(Long userid) {
+	public void setUserid(String userid) {
 		this.userId = userid;
 	}
 
@@ -57,6 +56,61 @@ public class User {
 
 	public void setProductList(List<String> productList) {
 		this.productList = productList;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((_id == null) ? 0 : _id.hashCode());
+		result = prime * result + ((productList == null) ? 0 : productList.hashCode());
+		result = prime * result + ((userId == null) ? 0 : userId.hashCode());
+		result = prime * result + ((userName == null) ? 0 : userName.hashCode());
+		result = prime * result + ((userPw == null) ? 0 : userPw.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		if (_id == null) {
+			if (other._id != null)
+				return false;
+		} else if (!_id.equals(other._id))
+			return false;
+		if (productList == null) {
+			if (other.productList != null)
+				return false;
+		} else if (!productList.equals(other.productList))
+			return false;
+		if (userId == null) {
+			if (other.userId != null)
+				return false;
+		} else if (!userId.equals(other.userId))
+			return false;
+		if (userName == null) {
+			if (other.userName != null)
+				return false;
+		} else if (!userName.equals(other.userName))
+			return false;
+		if (userPw == null) {
+			if (other.userPw != null)
+				return false;
+		} else if (!userPw.equals(other.userPw))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "User [_id=" + _id + ", userId=" + userId + ", userName=" + userName + ", userPw=" + userPw
+				+ ", productList=" + productList + "]";
 	}
 	
 	
