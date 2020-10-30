@@ -19,6 +19,7 @@ public class UserService {
 	public List<String> saveProduct(String userId, String productName) {
 		User userDetails = userRepo.findByuserId(userId);
 		List<String> pl = new ArrayList<>();
+		pl.addAll(userDetails.getProductList());
 		pl.add(productName);
 		userDetails.setProductList(pl);
 		return userRepo.save(userDetails).getProductList();
