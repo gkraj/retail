@@ -8,11 +8,31 @@
 	"item": [
 		{
 			"name": "/addUser",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"4\",\r\n    \"name\": \"test1\",\r\n    \"password\": \"dummy1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:8080/addUser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"addUser"
+					]
 				},
 				"description": "to add new user, in which userID should bne unique"
 			},
@@ -21,10 +41,27 @@
 		{
 			"name": "/login",
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"4\",\r\n    \"password\": \"dummy1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:8080/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
 				},
 				"description": "to add new user, in which userID should bne unique"
 			},
@@ -33,10 +70,21 @@
 		{
 			"name": "/addCart",
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:8080/user/3/add/Mobile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"3",
+						"add",
+						"Mobile"
+					]
 				},
 				"description": "add to cart based on userid"
 			},
@@ -45,10 +93,21 @@
 		{
 			"name": "/removeCart",
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:8080/user/3/remove/Mobile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"3",
+						"remove",
+						"Mobile"
+					]
 				}
 			},
 			"response": []
