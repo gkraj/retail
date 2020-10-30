@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class User {
 
 	@Id
-	private Object _id;
+	//private Object _id;
 	private String userId;
 	private String userName;
 	private String userPw;
@@ -62,7 +62,6 @@ public class User {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((_id == null) ? 0 : _id.hashCode());
 		result = prime * result + ((productList == null) ? 0 : productList.hashCode());
 		result = prime * result + ((userId == null) ? 0 : userId.hashCode());
 		result = prime * result + ((userName == null) ? 0 : userName.hashCode());
@@ -79,11 +78,6 @@ public class User {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		if (_id == null) {
-			if (other._id != null)
-				return false;
-		} else if (!_id.equals(other._id))
-			return false;
 		if (productList == null) {
 			if (other.productList != null)
 				return false;
@@ -109,7 +103,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [_id=" + _id + ", userId=" + userId + ", userName=" + userName + ", userPw=" + userPw
+		return "User [ userId=" + userId + ", userName=" + userName + ", userPw=" + userPw
 				+ ", productList=" + productList + "]";
 	}
 	

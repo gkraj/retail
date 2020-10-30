@@ -16,21 +16,21 @@ public class UserService {
 	@Autowired
 	private UserRepo userRepo;
 	
-	public User saveProduct(String userId, String productName) {
+	public List<String> saveProduct(String userId, String productName) {
 		User userDetails = userRepo.findByuserId(userId);
 		List<String> pl = new ArrayList<>();
 		pl.add(productName);
 		userDetails.setProductList(pl);
-		return userRepo.save(userDetails);
+		return userRepo.save(userDetails).getProductList();
 	}
 	
-	public User removeProduct(String userId, String productName) {
+	public List<String> removeProduct(String userId, String productName) {
 		User userDetails = userRepo.findByuserId(userId);
 		List<String> pl = new ArrayList<>();
 		pl = userDetails.getProductList();
 		pl.remove(productName);
 		userDetails.setProductList(pl);
-		return userRepo.save(userDetails);
+		return userRepo.save(userDetails).getProductList();
 	}
 
 	public void newUser(Map<String, String> params) {

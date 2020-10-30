@@ -6,7 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.retail.superkings.bean.ResponseBean;
@@ -23,22 +23,23 @@ public class UserController {
 	@Autowired
 	UserService userService;
 
-	@PostMapping("/adduser")
-	public String newUser(@RequestParam Map<String, String> params) {
+	@PostMapping("/addUser")
+	public String newUser(@RequestBody Map<String, String> params) {
 
 		String userId = params.get("userId");
 		@SuppressWarnings("unchecked")
 		List<String> ul = (List<String>) userRepo.findByuserId(userId);
-		if (ul.size() > 0)
-			return "userID already exist, please enter new userId";
-		else {
+		if (ul == null) {
 			userService.newUser(params);
 			return "successfully registred the user, please login to shop";
+		}
+		else {
+			return "userID already exist, please enter new userId";
 		}
 	}
 	
 	@PostMapping("/login")
-	public ResponseBean loginUser(@RequestParam Map<String, String> params) {
+	public ResponseBean loginUser(@RequestBody Map<String, String> params) {
 		String userId = params.get("userId");
 		User ul = userRepo.findByuserId(userId);
 		if(ul != null) {

@@ -1,0 +1,58 @@
+{
+	"info": {
+		"_postman_id": "ce7d8432-a1e2-4607-8920-a605c812253a",
+		"name": "Retail",
+		"description": "# Introduction\nWhat does your API do?\n\n# Overview\nThings that the developers should know about\n\n# Authentication\nWhat is the preferred way of using the API?\n\n# Error Codes\nWhat errors and status codes can a user expect?\n\n# Rate limit\nIs there a limit to the number of requests an user can send?",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/addUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "to add new user, in which userID should bne unique"
+			},
+			"response": []
+		},
+		{
+			"name": "/login",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "to add new user, in which userID should bne unique"
+			},
+			"response": []
+		},
+		{
+			"name": "/addCart",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "add to cart based on userid"
+			},
+			"response": []
+		},
+		{
+			"name": "/removeCart",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

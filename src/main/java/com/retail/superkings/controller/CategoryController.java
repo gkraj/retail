@@ -52,12 +52,12 @@ public class CategoryController {
 	}
 	
 	@PostMapping("user/{userId}/add/{productName}")
-	public User addProducttoCart(@PathVariable String userId, @PathVariable String productName) {
+	public List<String> addProducttoCart(@PathVariable String userId, @PathVariable String productName) {
 		return userService.saveProduct(userId, productName);
 	}
 	
 	@PostMapping("user/{userId}/remove/{productName}")
-	public User removeProducttoCart(@PathVariable String userId, @PathVariable String productName) {
+	public List<String> removeProducttoCart(@PathVariable String userId, @PathVariable String productName) {
 		return userService.removeProduct(userId, productName);
 	}
 	
