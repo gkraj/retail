@@ -63,7 +63,7 @@
 						"login"
 					]
 				},
-				"description": "to add new user, in which userID should bne unique"
+				"description": "login with userId and password"
 			},
 			"response": []
 		},
@@ -73,7 +73,7 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/user/3/add/Mobile",
+					"raw": "http://localhost:8080/user/{{userId}}/add/{{productName}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -81,12 +81,12 @@
 					"port": "8080",
 					"path": [
 						"user",
-						"3",
+						"{{userId}}",
 						"add",
-						"Mobile"
+						"{{productName}}"
 					]
 				},
-				"description": "add to cart based on userid"
+				"description": "add product to cart based on userId"
 			},
 			"response": []
 		},
@@ -96,7 +96,7 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/user/3/remove/Mobile",
+					"raw": "http://localhost:8080/user/{{userId}}/remove/{{productName}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -104,13 +104,25 @@
 					"port": "8080",
 					"path": [
 						"user",
-						"3",
+						"{{userId}}",
 						"remove",
-						"Mobile"
+						"{{productName}}"
 					]
 				}
 			},
 			"response": []
+		}
+	],
+	"variable": [
+		{
+			"id": "b3e78f75-c811-41fc-bf0a-60fbb4d9d7b8",
+			"key": "userId",
+			"value": "3"
+		},
+		{
+			"id": "f48c4602-846b-4cea-99c0-c445ce6bc070",
+			"key": "productName",
+			"value": "Mobile"
 		}
 	],
 	"protocolProfileBehavior": {}
