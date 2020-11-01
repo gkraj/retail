@@ -51,7 +51,7 @@ public class CategoryController {
 		return categoryRepo.findBycName(categoryName);
 	}
 	
-	@PostMapping("user/{userId}/add/{productName}")
+/*	@PostMapping("user/{userId}/add/{productName}")
 	public List<String> addProducttoCart(@PathVariable String userId, @PathVariable String productName) {
 		return userService.saveProduct(userId, productName);
 	}
@@ -59,6 +59,6 @@ public class CategoryController {
 	@PostMapping("user/{userId}/remove/{productName}")
 	public List<String> removeProducttoCart(@PathVariable String userId, @PathVariable String productName) {
 		return userService.removeProduct(userId, productName);
-	}
+	}*/
 	
 }

@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "ce7d8432-a1e2-4607-8920-a605c812253a",
 		"name": "Retail",
-		"description": "# Introduction\nWhat does your API do?\n\n# Overview\nThings that the developers should know about\n\n# Authentication\nWhat is the preferred way of using the API?\n\n# Error Codes\nWhat errors and status codes can a user expect?\n\n# Rate limit\nIs there a limit to the number of requests an user can send?",
+		"description": "# Introduction\nWhat does your API do?\nthis api for retail product\n\n# Overview\nThings that the developers should know about\nhv to contact gk\n# Authentication\nWhat is the preferred way of using the API?\nthis is educational purpose and requires registration.\n# Error Codes\nWhat errors and status codes can a user expect?\nstandard HTTP error code\n# Rate limit\nIs there a limit to the number of requests an user can send?\nno.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -68,7 +68,7 @@
 			"response": []
 		},
 		{
-			"name": "/addCart",
+			"name": "/cart/add",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -86,43 +86,137 @@
 						"{{productName}}"
 					]
 				},
-				"description": "add product to cart based on userId"
+				"description": "add, update and delete the product in the cart.\r\n"
 			},
 			"response": []
 		},
 		{
-			"name": "/removeCart",
+			"name": "/cart/{userId}",
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/user/{{userId}}/remove/{{productName}}",
+					"raw": "http://localhost:8080/cart/{{userId}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"user",
-						"{{userId}}",
-						"remove",
+						"cart",
+						"{{userId}}"
+					]
+				},
+				"description": "to get the cart details based on userId"
+			},
+			"response": []
+		},
+		{
+			"name": "/category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "get the all category"
+			},
+			"response": []
+		},
+		{
+			"name": "/product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "to get list of all products"
+			},
+			"response": []
+		},
+		{
+			"name": "/category/product/{name}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{local}}/category/product/{{productName}}",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"category",
+						"product",
 						"{{productName}}"
 					]
-				}
+				},
+				"description": "get detail description about the product"
+			},
+			"response": []
+		},
+		{
+			"name": "category/{categoryName}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{local}}/category/{{categoryName}}",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"category",
+						"{{categoryName}}"
+					]
+				},
+				"description": "get the product available in category - used for recommended products"
 			},
 			"response": []
 		}
 	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "ea49e14e-875a-4239-9431-274b52ab362c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "fb7314cc-c864-46e7-aca7-01a465f8d4e4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
 	"variable": [
 		{
-			"id": "b3e78f75-c811-41fc-bf0a-60fbb4d9d7b8",
+			"id": "265dac46-e7b1-47b3-8cd7-c9f9ca8cbaeb",
 			"key": "userId",
 			"value": "3"
 		},
 		{
-			"id": "f48c4602-846b-4cea-99c0-c445ce6bc070",
+			"id": "c045e217-c432-4633-927d-8807e9378820",
 			"key": "productName",
 			"value": "Mobile"
+		},
+		{
+			"id": "ceb20a2e-833d-425c-85ef-5825a649f6d4",
+			"key": "retail",
+			"value": "http://retail-backend-superkings.redhat-hackathon-ocp-a39cdf59c11fe9ef74002319618f3999-0000.eu-gb.containers.appdomain.cloud"
+		},
+		{
+			"id": "a65c9ee7-c223-487a-915d-ad0e9b7de98f",
+			"key": "categoryName",
+			"value": "Electronics"
 		}
 	],
 	"protocolProfileBehavior": {}

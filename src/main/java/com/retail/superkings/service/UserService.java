@@ -16,7 +16,7 @@ public class UserService {
 	@Autowired
 	private UserRepo userRepo;
 	
-	public List<String> saveProduct(String userId, String productName) {
+/*	public List<String> saveProduct(String userId, String productName) {
 		User userDetails = userRepo.findByuserId(userId);
 		List<String> pl = new ArrayList<>();
 		pl.addAll(userDetails.getProductList());
@@ -32,7 +32,7 @@ public class UserService {
 		pl.remove(productName);
 		userDetails.setProductList(pl);
 		return userRepo.save(userDetails).getProductList();
-	}
+	}*/
 
 	public void newUser(Map<String, String> params) {
 		User ur = new User(params.get("userId"), params.get("name"), params.get("password"));

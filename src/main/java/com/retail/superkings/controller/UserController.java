@@ -44,7 +44,7 @@ public class UserController {
 		User ul = userRepo.findByuserId(userId);
 		if(ul != null) {
 			if(params.get("password").equals(ul.getUserPw())) {
-				return new ResponseBean(ul.getProductList(), "Success", ul.getUserName());
+				return new ResponseBean(null, "Success", ul.getUserName());
 			} else {
 				return new ResponseBean(null, "Invalid Password", null);
 			}	
