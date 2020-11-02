@@ -72,18 +72,25 @@
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"4\",\r\n    \"products\": [{\r\n        \"name\": \"Mobile\",\r\n        \"price\": 55000.0,\r\n        \"quantity\": \"2\"\r\n    }, {\r\n        \"name\": \"Laptop\",\r\n        \"price\": 75000,\r\n        \"quantity\": \"6\"\r\n    }]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:8080/user/{{userId}}/add/{{productName}}",
+					"raw": "http://localhost:8080/cart/add",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"user",
-						"{{userId}}",
-						"add",
-						"{{productName}}"
+						"cart",
+						"add"
 					]
 				},
 				"description": "add, update and delete the product in the cart.\r\n"
@@ -129,7 +136,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "{{local}}/product",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"product"
+					]
 				},
 				"description": "to get list of all products"
 			},
@@ -199,22 +212,22 @@
 	],
 	"variable": [
 		{
-			"id": "265dac46-e7b1-47b3-8cd7-c9f9ca8cbaeb",
+			"id": "d0cdcf9b-c252-4cb7-b717-a1d28cbaaaa1",
 			"key": "userId",
 			"value": "3"
 		},
 		{
-			"id": "c045e217-c432-4633-927d-8807e9378820",
+			"id": "359096fa-c791-47df-911e-1568e0d0d54f",
 			"key": "productName",
 			"value": "Mobile"
 		},
 		{
-			"id": "ceb20a2e-833d-425c-85ef-5825a649f6d4",
+			"id": "2b57ea69-efaa-4fd6-b268-057c861a7e57",
 			"key": "retail",
 			"value": "http://retail-backend-superkings.redhat-hackathon-ocp-a39cdf59c11fe9ef74002319618f3999-0000.eu-gb.containers.appdomain.cloud"
 		},
 		{
-			"id": "a65c9ee7-c223-487a-915d-ad0e9b7de98f",
+			"id": "fd13ca30-fb96-490d-af76-a1f82f0e70f1",
 			"key": "categoryName",
 			"value": "Electronics"
 		}

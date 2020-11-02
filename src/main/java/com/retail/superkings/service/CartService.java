@@ -34,7 +34,7 @@ public class CartService {
 			double val = 0;
 			for (int i = 0; i < cartDetails.getProducts().size(); i++) {
 				Map<String, String> mp = cartDetails.getProducts().get(i);
-				val = val + Integer.parseInt(mp.get("price")) * Integer.parseInt(mp.get("quantity"));
+				val = val + Integer.parseInt(mp.get("price").substring(0, mp.get("price").length()-2)) * Integer.parseInt(mp.get("quantity"));
 			}
 			cartDetails.setTotalValue(val);
 			return cartDetails;

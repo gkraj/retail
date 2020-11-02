@@ -11,12 +11,14 @@ public class Product {
 	private String category;
 	private String Rating;
 	private String image;
+	private double price;
 	
 	protected Product() {
 		
 	}
 
-	public Product(String pName, String description, String inventory, String category, String rating, String image) {
+	public Product(String pName, String description, String inventory, String category, String rating, String image,
+			double price) {
 		super();
 		this.pName = pName;
 		Description = description;
@@ -24,6 +26,7 @@ public class Product {
 		this.category = category;
 		Rating = rating;
 		this.image = image;
+		this.price = price;
 	}
 
 	public String getpName() {
@@ -74,8 +77,12 @@ public class Product {
 		this.image = image;
 	}
 
-	
-	
-	
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}	
 	
 }

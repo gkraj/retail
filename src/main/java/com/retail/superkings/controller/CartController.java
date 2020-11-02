@@ -16,7 +16,7 @@ import com.retail.superkings.service.CartService;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/cart")
+//@RequestMapping("/cart")
 public class CartController {
 
 	@Autowired
@@ -25,12 +25,12 @@ public class CartController {
 	private CartRepo cartRepo;
 	
 	
-	@GetMapping("/{userId}")
+	@GetMapping("/cart/{userId}")
 	public @ResponseBody Object getCartByUserId(@PathVariable String userId) {
 		return cartService.getCartById(userId);
 	}
 	
-	@PostMapping("/add")
+	@PostMapping("/cart/add")
 	public @ResponseBody Object addProducttoCart(@RequestBody Cart products) {
 		return cartService.saveProduct(products);
 	}
