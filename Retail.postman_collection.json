@@ -186,6 +186,34 @@
 				"description": "get the product available in category - used for recommended products"
 			},
 			"response": []
+		},
+		{
+			"name": "/addProduct",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"pName\": \"Camera\",\r\n    \"description\": \"test\",\r\n    \"inventory\": \"10\",\r\n    \"category\": \"Electronics\",\r\n    \"price\": 50000,\r\n    \"rating\": \"4\",\r\n    \"image\": \"image\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}/category/product",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"category",
+						"product"
+					]
+				},
+				"description": "adding new products"
+			},
+			"response": []
 		}
 	],
 	"event": [
@@ -212,22 +240,22 @@
 	],
 	"variable": [
 		{
-			"id": "d0cdcf9b-c252-4cb7-b717-a1d28cbaaaa1",
+			"id": "9af60257-f7ab-40ae-a476-2759f157616a",
 			"key": "userId",
 			"value": "3"
 		},
 		{
-			"id": "359096fa-c791-47df-911e-1568e0d0d54f",
+			"id": "a0894ff5-e543-4355-a768-9540df3f6418",
 			"key": "productName",
 			"value": "Mobile"
 		},
 		{
-			"id": "2b57ea69-efaa-4fd6-b268-057c861a7e57",
+			"id": "79e6e060-6724-43df-8a1b-497eb18b8f64",
 			"key": "retail",
 			"value": "http://retail-backend-superkings.redhat-hackathon-ocp-a39cdf59c11fe9ef74002319618f3999-0000.eu-gb.containers.appdomain.cloud"
 		},
 		{
-			"id": "fd13ca30-fb96-490d-af76-a1f82f0e70f1",
+			"id": "d38dd132-0af9-44bc-85de-2b8e5fbe878b",
 			"key": "categoryName",
 			"value": "Electronics"
 		}
